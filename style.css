@@ -1,0 +1,22 @@
+html, body{height: 99%;}
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+button{
+	border: 0;
+	border-radius: 25px;
+	width: 20%;
+	padding: 5%;
+	font-size: 32pt;
+	background-color: black;
+	color: white;
+	margin-bottom: 3%;
+	transition: 0.5s;
+}
+button:hover{
+	transform: scale(1.05);
+}
