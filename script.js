@@ -1,48 +1,44 @@
-function fnHex(x)
+body = document.body;
+card = document.getElementsByTagName('div')[0];
+rgb = document.getElementById('rgb');
+hex = document.getElementById('hex');
+btn = document.getElementsByTagName('button')[0];
+
+function fnHex(rgbVal)
 {
-	y=x.toString(16)
-	if(y.length==1){y=0+y}
-	return y.toUpperCase()
+	hexVal = rgbVal.toString(16).toUpperCase();
+	if (hexVal.length == 1)
+		hexVal = 0 + hexVal
+	return hexVal;
 }
 
-function fnLight(x)
+function fnSecondary()
 {
-	y=x+155
-	if(y>255){y=255}
-	return y
+	clrMix = red + green + blue;
+	if(clrMix < 400)
+		return 'white';
+	return 'black';
 }
-
-function fnDark(x)
-{
-	y=x-155
-	if(y<0){y=0}
-	return y
-}
-
 
 function fnChange()
 {
-	r = Math.floor(Math.random()*256)
-	g = Math.floor(Math.random()*256)
-	b = Math.floor(Math.random()*256)
-	
-	document.getElementsByTagName('body')[0].style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
-	document.getElementById('hex').innerHTML = '#'+fnHex(r)+fnHex(g)+fnHex(b);
-	document.getElementById('rgb').innerHTML = 'RGB('+r+','+g+','+b+')';
-	
-	if(r+g+b<255)
-	{
-		document.getElementsByTagName('button')[0].style.backgroundColor = 'rgb('+ fnLight(r) +','+ fnLight(g) +','+ fnLight(b) +')';
-		document.getElementsByTagName('button')[0].style.color = 'rgb('+ fnDark(r) +','+ fnDark(g) +','+ fnDark(b) +')';
-		document.getElementById('hex').style.color = 'rgb('+ fnLight(r) +','+ fnLight(g) +','+ fnLight(b) +')';
-		document.getElementById('rgb').style.color = 'rgb('+ fnLight(r) +','+ fnLight(g) +','+ fnLight(b) +')';
-	}
-	else
-	{
-		document.getElementsByTagName('button')[0].style.backgroundColor = 'rgb('+ fnDark(r) +','+ fnDark(g) +','+ fnDark(b) +')';
-		document.getElementsByTagName('button')[0].style.color = 'rgb('+ fnLight(r) +','+ fnLight(g) +','+ fnLight(b) +')';
-		document.getElementById('hex').style.color = 'rgb('+ fnDark(r) +','+ fnDark(g) +','+ fnDark(b) +')';
-		document.getElementById('rgb').style.color = 'rgb('+ fnDark(r) +','+ fnDark(g) +','+ fnDark(b) +')';
-	}
-	
+	red = Math.round(Math.random()*255);
+	green = Math.round(Math.random()*255);
+	blue = Math.round(Math.random()*255);
+
+	clrSecondary = fnSecondary();
+
+	rgb_color = 'RGB(' + red + ',' + green + ',' + blue + ')';
+	hex_color = '#' + fnHex(red) + fnHex(green) + fnHex(blue);
+
+	body.style.backgroundColor = rgb_color;
+	rgb.style.color = rgb_color;
+	hex.style.color = rgb_color;
+	btn.style.backgroundColor = rgb_color;
+
+	card.style.backgroundColor = clrSecondary;
+	btn.style.color = clrSecondary;
+
+	rgb.innerText = rgb_color;
+	hex.innerText = hex_color;
 }
