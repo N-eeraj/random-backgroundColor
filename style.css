@@ -1,22 +1,72 @@
-html, body{height: 99%;}
-body{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+*{
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+}
+
+div{
+    width: 80vw;
+    height: 40vh;
+    margin: 25vh auto;
+    padding: 5vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+}
+
+h1{
+    font-size: 4vh;
 }
 
 button{
-	border: 0;
-	border-radius: 25px;
-	width: 20%;
-	padding: 5%;
-	font-size: 32pt;
-	background-color: black;
-	color: white;
-	margin-bottom: 3%;
-	transition: 0.5s;
+    width: 50%;
+    height: 15%;
+    background-color: white;
+    color: black;
+    border-radius: 24px;
+    font-size: 4vw;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}button:hover{
+    border-radius: 0;
+    transform: scale(0.9)
 }
-button:hover{
-	transform: scale(1.05);
+
+@media screen and (min-width: 720px)
+{
+    div{
+        width: 60vw;
+    }   
+}
+
+@media screen and (orientation: landscape)
+{
+    div{
+        width: 40vw;
+        height: 60vh;
+        margin: 15vh auto;
+    }
+
+    h1{
+        font-size: 6vh;
+    }
+    
+    button{
+        width: 60%;
+        font-size: 2.5vw;
+        border-radius: 15px;
+    }
+}
+
+@media screen and (min-width: 1024) and (orientation: landscape)
+{
+    div{
+        width: 50vw;
+    }
 }
